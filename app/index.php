@@ -74,28 +74,37 @@ include 'includes/header.php';
         </table>
     </section>
 
-    <section class="upcoming-matches">
-        <h2>Prochains Matchs</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Domicile</th>
-                    <th>Extérieur</th>
-                    <th>Lieu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($prochains_matchs as $match): ?>
-                <tr>
-                    <td><?= date('d/m/Y H:i', strtotime($match['date_heure'])) ?></td>
-                    <td><?= htmlspecialchars($match['equipe_domicile_nom']) ?></td>
-                    <td><?= htmlspecialchars($match['equipe_exterieur_nom']) ?></td>
-                    <td><?= htmlspecialchars($match['lieu']) ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+    <section class="home-section">
+        <div class="section-header">
+            <i class="fas fa-calendar-alt"></i>
+            <h2>Prochains Matchs</h2>
+        </div>
+        
+        <div class="matches-grid">
+            <?php foreach ($prochains_matchs as $match): ?>
+                <div class="match-card">
+                    <div class="match-date">
+                        <i class="far fa-clock"></i>
+                        <?= date('d/m/Y H:i', strtotime($match['date_heure'])) ?>
+                    </div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <div class="team-name"><?= htmlspecialchars($match['equipe_domicile_nom']) ?></div>
+                            <div>Domicile</div>
+                        </div>
+                        <div class="versus">VS</div>
+                        <div class="team">
+                            <div class="team-name"><?= htmlspecialchars($match['equipe_exterieur_nom']) ?></div>
+                            <div>Extérieur</div>
+                        </div>
+                    </div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <?= htmlspecialchars($match['lieu']) ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </section>
 
     <section class="standings">
