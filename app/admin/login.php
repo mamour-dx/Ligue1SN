@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (!empty($username) && !empty($password)) {
-        $stmt = $pdo->prepare("SELECT id, password_hash FROM administrateurs WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT id, password FROM administrateurs WHERE username = ?");
         $stmt->execute([$username]);
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($admin && password_verify($password, $admin['password_hash'])) {
+        if ($admin && $password === $admin['password']) {
             $_SESSION['admin_id'] = $admin['id'];
             header('Location: dashboard.php');
             exit;

@@ -33,12 +33,12 @@ CREATE TABLE matchs (
 CREATE TABLE administrateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL
 );
 
--- Insertion d'un administrateur par défaut (mot de passe: admin123)
-INSERT INTO administrateurs (username, password_hash) 
-VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+-- Insertion d'un administrateur par défaut avec mot de passe en clair
+INSERT INTO administrateurs (username, password) 
+VALUES ('admin', 'admin123');
 
 -- Insertion de quelques équipes de la Ligue 1 sénégalaise
 INSERT INTO equipes (nom) VALUES 
