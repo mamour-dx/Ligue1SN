@@ -99,39 +99,46 @@ include 'includes/header.php';
     </section>
 
     <section class="standings">
-        <h2>Classement</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Pos</th>
-                    <th>Équipe</th>
-                    <th>MJ</th>
-                    <th>V</th>
-                    <th>N</th>
-                    <th>D</th>
-                    <th>BP</th>
-                    <th>BC</th>
-                    <th>DB</th>
-                    <th>Pts</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($classement as $index => $equipe): ?>
-                <tr>
-                    <td><?= $index + 1 ?></td>
-                    <td><?= htmlspecialchars($equipe['nom']) ?></td>
-                    <td><?= $equipe['matchs_joues'] ?></td>
-                    <td><?= $equipe['victoires'] ?></td>
-                    <td><?= $equipe['nuls'] ?></td>
-                    <td><?= $equipe['defaites'] ?></td>
-                    <td><?= $equipe['buts_marques'] ?></td>
-                    <td><?= $equipe['buts_encaisses'] ?></td>
-                    <td><?= $equipe['difference_buts'] ?></td>
-                    <td><?= $equipe['points'] ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="standings-title">
+            <i class="fas fa-trophy"></i>
+            <h2>Classement</h2>
+        </div>
+        <div class="standings-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th class="team-name">Équipe</th>
+                        <th>MJ</th>
+                        <th>V</th>
+                        <th>N</th>
+                        <th>D</th>
+                        <th>BP</th>
+                        <th>BC</th>
+                        <th>Diff</th>
+                        <th class="points">Pts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($classement as $index => $equipe): ?>
+                        <tr>
+                            <td class="position"><?= $index + 1 ?></td>
+                            <td class="team-name"><?= htmlspecialchars($equipe['nom']) ?></td>
+                            <td class="stats"><?= $equipe['matchs_joues'] ?></td>
+                            <td class="stats"><?= $equipe['victoires'] ?></td>
+                            <td class="stats"><?= $equipe['nuls'] ?></td>
+                            <td class="stats"><?= $equipe['defaites'] ?></td>
+                            <td class="stats"><?= $equipe['buts_marques'] ?></td>
+                            <td class="stats"><?= $equipe['buts_encaisses'] ?></td>
+                            <td class="stats <?= $equipe['difference_buts'] > 0 ? 'goal-diff-positive' : ($equipe['difference_buts'] < 0 ? 'goal-diff-negative' : '') ?>">
+                                <?= $equipe['difference_buts'] > 0 ? '+' : '' ?><?= $equipe['difference_buts'] ?>
+                            </td>
+                            <td class="points"><?= $equipe['points'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
 
