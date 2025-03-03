@@ -1,11 +1,13 @@
 # Plateforme de Suivi du Championnat de Ligue 1 Sénégalaise
 
 ## Description
+
 Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sénégalaise. Elle propose un classement mis à jour automatiquement, l'affichage des matchs récents et à venir, ainsi qu'une interface d'administration pour la gestion des matchs et des scores.
 
 ## Fonctionnalités Principales
 
 ### 1. Section Classement
+
 - Affichage du classement avec :
   - Position dans le classement
   - Nom de l'équipe
@@ -17,6 +19,7 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
 - Mise à jour automatique du classement après saisie des scores des matchs.
 
 ### 2. Section Matchs
+
 - Affichage des matchs récents avec :
   - Date et heure du match
   - Équipes concernées
@@ -28,12 +31,14 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
 - Filtrage par équipe ou par date.
 
 ### 3. Administration (Accès Restreint)
+
 - Interface sécurisée pour les administrateurs permettant :
   - L'ajout de nouveaux matchs avec date, heure et équipes concernées
   - La mise à jour des scores après un match
   - La modification ou suppression des matchs erronés
 
 ## Technologies Utilisées
+
 - **Backend :** PHP (sans framework)
 - **Base de données :** MySQL
 - **Frontend :** HTML, CSS, JavaScript
@@ -41,21 +46,25 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
 ## Installation
 
 ### Prérequis
+
 - Serveur Apache avec support PHP
 - MySQL ou MariaDB
 
 ### Configuration
+
 1. **Cloner le projet**
    ```sh
    git clone https://github.com/votre-repo/ligue1-senegal.git
    cd ligue1-senegal
    ```
 2. **Configurer la base de données**
+
    - Importer le fichier `database.sql` dans MySQL :
+
      ```sql
      CREATE DATABASE ligue1_senegal;
      USE ligue1_senegal;
-     
+
      CREATE TABLE equipes (
          id INT AUTO_INCREMENT PRIMARY KEY,
          nom VARCHAR(100) NOT NULL,
@@ -89,6 +98,7 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
      ```
 
 3. **Configurer la connexion à la base de données**
+
    - Modifier le fichier `config.php` avec vos informations MySQL :
      ```php
      <?php
@@ -102,14 +112,6 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
 4. **Lancer l'application**
    - Déplacer les fichiers vers votre serveur Apache et accéder à `http://localhost/ligue1-senegal`
 
-## Contribuer
-1. Forker le dépôt
-2. Créer une nouvelle branche (`git checkout -b feature-nouvelle-fonctionnalite`)
-3. Committer vos modifications (`git commit -m 'Ajout d'une nouvelle fonctionnalité'`)
-4. Pousser votre branche (`git push origin feature-nouvelle-fonctionnalite`)
-5. Ouvrir une Pull Request
-
 ## Licence
+
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-
