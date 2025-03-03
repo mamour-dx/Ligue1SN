@@ -16,7 +16,7 @@
             background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
             padding: 1.5rem 0 0;
-            margin-top: 2rem;
+            width: 100%;
         }
 
         .footer-content {
