@@ -2,33 +2,34 @@
 session_start();
 require_once 'config/database.php';
 
-// Récupérer les matchs récents
+// Récupérer les matchs récents et prochains en une seule requête
 $stmt = $pdo->query("
-    SELECT m.*, 
-           e1.nom as equipe_domicile_nom, 
-           e2.nom as equipe_exterieur_nom
-    FROM matchs m
-    JOIN equipes e1 ON m.equipe_domicile = e1.id
-    JOIN equipes e2 ON m.equipe_exterieur = e2.id
-    WHERE m.date_heure <= NOW()
-    ORDER BY m.date_heure DESC
-    LIMIT 5
+    (SELECT m.*, 
+            e1.nom as equipe_domicile_nom, 
+            e2.nom as equipe_exterieur_nom,
+            'recent' as type
+     FROM matchs m
+     JOIN equipes e1 ON m.equipe_domicile = e1.id
+     JOIN equipes e2 ON m.equipe_exterieur = e2.id
+     WHERE m.date_heure <= NOW()
+     ORDER BY m.date_heure DESC
+     LIMIT 5)
+    UNION ALL
+    (SELECT m.*, 
+            e1.nom as equipe_domicile_nom, 
+            e2.nom as equipe_exterieur_nom,
+            'prochain' as type
+     FROM matchs m
+     JOIN equipes e1 ON m.equipe_domicile = e1.id
+     JOIN equipes e2 ON m.equipe_exterieur = e2.id
+     WHERE m.date_heure > NOW()
+     ORDER BY m.date_heure ASC
+     LIMIT 5)
 ");
-$matchs_recents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Récupérer les prochains matchs
-$stmt = $pdo->query("
-    SELECT m.*, 
-           e1.nom as equipe_domicile_nom, 
-           e2.nom as equipe_exterieur_nom
-    FROM matchs m
-    JOIN equipes e1 ON m.equipe_domicile = e1.id
-    JOIN equipes e2 ON m.equipe_exterieur = e2.id
-    WHERE m.date_heure > NOW()
-    ORDER BY m.date_heure ASC
-    LIMIT 5
-");
-$prochains_matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$matchs_recents = array_filter($matchs, fn($m) => $m['type'] === 'recent');
+$prochains_matchs = array_filter($matchs, fn($m) => $m['type'] === 'prochain');
 
 // Récupérer le classement
 $stmt = $pdo->query("

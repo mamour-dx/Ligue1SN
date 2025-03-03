@@ -381,6 +381,55 @@ require_once __DIR__ . '/../config/config.php';
                 gap: 0.125rem;
             }
         }
+
+        /* Consolidation des styles communs */
+        .card, .standings-table, .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Styles du footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1.5rem 0 0;
+            width: 100%;
+            margin-top: auto;  /* Pour coller le footer en bas */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+        }
+
+        .footer-bottom {
+            margin-top: 1.5rem;
+            padding: 1rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
