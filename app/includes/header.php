@@ -253,6 +253,134 @@ require_once __DIR__ . '/../config/config.php';
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
+
+        /* Styles pour la page de classement */
+        .standings-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .standings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .standings-legend {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .legend-color.champions {
+            background-color: #059669;
+        }
+
+        .legend-color.relegation {
+            background-color: #dc2626;
+        }
+
+        .standings-table th {
+            background: #f8fafc;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .standings-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .position-header, .team-header {
+            text-align: left !important;
+        }
+
+        .points-header {
+            background-color: #f1f5f9 !important;
+        }
+
+        .champions-row {
+            background-color: rgba(5, 150, 105, 0.05);
+        }
+
+        .relegation-row {
+            background-color: rgba(220, 38, 38, 0.05);
+        }
+
+        .form-indicators {
+            display: flex;
+            gap: 0.25rem;
+            justify-content: center;
+        }
+
+        .form-win, .form-draw, .form-loss {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .form-win {
+            background-color: #059669;
+            color: white;
+        }
+
+        .form-draw {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        .form-loss {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .standings-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .standings-legend {
+                flex-wrap: wrap;
+            }
+
+            .standings-table {
+                font-size: 0.875rem;
+            }
+
+            .form-indicators {
+                flex-direction: column;
+                gap: 0.125rem;
+            }
+        }
     </style>
 </head>
 <body>
