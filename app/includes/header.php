@@ -168,6 +168,91 @@ require_once __DIR__ . '/../config/config.php';
                 display: block;
             }
         }
+
+        /* Styles pour la page d'accueil */
+        .home-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            color: #1e293b;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-header i {
+            color: #3b82f6;
+        }
+
+        /* Styles pour les prochains matchs */
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .match-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .match-date {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .team {
+            text-align: center;
+            flex: 1;
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .versus {
+            font-weight: 600;
+            color: #94a3b8;
+            padding: 0 1rem;
+        }
+
+        .match-venue {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Styles pour le classement */
+        .standings-table {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
     </style>
 </head>
 <body>
