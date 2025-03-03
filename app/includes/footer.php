@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?= date('Y') ?> Ligue 1 Sénégalaise. Tous droits réservés.</p>
+            <p>&copy; <?= date('Y') ?> Ligue 1 Sénégalaise.</p>
         </div>
     </footer>
     <script src="/js/main.js"></script>
