@@ -111,7 +111,3 @@ Cette plateforme permet de suivre en temps réel le championnat de Ligue 1 sén�
 
 4. **Lancer l'application**
    - Déplacer les fichiers vers votre serveur Apache et accéder à `http://localhost/ligue1-senegal`
-
-## Licence
-
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
